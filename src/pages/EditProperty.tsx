@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { getPropertyById, updateProperty, uploadImage, deleteProperty } from '../services/propertyService'
-import { Property } from '../types'
+import { getPropertyById, updateProperty, uploadImage } from '../services/propertyService'
 import { toast } from 'react-hot-toast'
 import { FaUpload, FaTimes } from 'react-icons/fa'
 

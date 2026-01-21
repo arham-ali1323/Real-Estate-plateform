@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getProperties } from '../services/propertyService'
 import { Property, PropertyFilters } from '../types'
-import { FaBed, FaBath, FaRulerCombined, FaSearch, FaFilter } from 'react-icons/fa'
+import { FaBed, FaBath, FaRulerCombined, FaFilter } from 'react-icons/fa'
 import { toast } from 'react-hot-toast'
 
 const PropertyList = () => {
