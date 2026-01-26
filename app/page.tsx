@@ -4,16 +4,21 @@ import CoreFeaturesSection from "../components/home/CoreFeatures";
 import Testimonial from "../components/home/Testimonial";
 import RecentProjects from "../components/home/RecentProjects";
 import WhatWeOfferSection from "../components/home/WhatWeOffer";
-
+import LatestNews from "@/components/home/LatestNews";
+import CompanyAwards from "@/components/home/CompanyAwards";
+import OurExperts from "@/components/home/OurExperts";
 export default function Home() {
   return (
     <div className="min-h-screen">
       <Hero />
       <AboutUs />
+      <WhatWeOfferSection />
+      <RecentProjects />
       <CoreFeaturesSection />
       <Testimonial />
-      <RecentProjects />
-      <WhatWeOfferSection />
+      <OurExperts/>
+      <CompanyAwards />
+      <LatestNews />
     </div>
   );
 }
