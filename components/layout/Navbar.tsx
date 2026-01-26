@@ -18,22 +18,23 @@ export default function Navbar() {
     },
     { 
       name: 'Services', 
-      hasDropdown: false,
+      hasDropdown: true,
+      items: ['Services', 'Service Details']
     },
     { 
       name: 'Projects', 
       hasDropdown: true,
-      items: ['All Projects', 'Residential', 'Commercial', 'Industrial']
+      items: ['Projects', 'Project Details']
     },
     { 
       name: 'Pages', 
       hasDropdown: true,
-      items: ['Team', 'Testimonials', 'FAQ', 'Gallery']
+      items: ['Team', 'Team Details', 'Testimonials', 'FAQ',]
     },
     { 
       name: 'Blog', 
       hasDropdown: true,
-      items: ['Blog Grid', 'Blog List', 'Blog Details']
+      items: ['Blog', 'Blog Details']
     },
     { 
       name: 'Contact', 
@@ -63,37 +64,52 @@ export default function Navbar() {
           {/* Navigation Links */}
           <div className="hidden lg:flex items-center gap-6">
             {navItems.map((item, index) => (
-              <Link
+              <div
                 key={index}
-                href={`/${item.name}`}
-                className="relative"
-                onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                className="relative group"
               >
-                <button className="text-gray-300 hover:text-white font-medium transition flex items-center gap-1">
+                <Link
+                  href={`/${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="text-gray-300 hover:text-white font-medium transition-all duration-300 flex items-center gap-1 text-sm cursor-pointer hover:scale-105 relative group"
+                  onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
+                >
                   {item.name}
                   {item.hasDropdown && (
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   )}
-                </button>
-
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+                
+                {/* Invisible bridge to prevent gap */}
+                {item.hasDropdown && (
+                  <div 
+                    className="absolute top-full left-0 right-0 h-2 z-40"
+                    onMouseEnter={() => setActiveDropdown(item.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  />
+                )}
+                
                 {/* Dropdown Menu */}
                 {item.hasDropdown && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                  <div 
+                    className="absolute top-full left-0 mt-0 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
+                    onMouseEnter={() => setActiveDropdown(item.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
                     {item.items?.map((subItem, subIndex) => (
                       <Link
                         key={subIndex}
-                        href={`/${subItem}`}
-                        className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-500 text-sm transition"
+                        href={`/${subItem.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-500 text-sm transition-all duration-300 cursor-pointer hover:translate-x-1"
                       >
                         {subItem}
                       </Link>
                     ))}
                   </div>
                 )}
-              </Link>
+              </div>
             ))}
           </div>
 
