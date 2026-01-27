@@ -1,6 +1,7 @@
 "use client";
 import React from 'react'
 import { useState } from 'react';
+import Link from 'next/link';
 import Hero from '@/components/ui/Hero';
 
 export default function ServicesPage() {
@@ -11,37 +12,43 @@ export default function ServicesPage() {
       id: 1,
       title: 'Real Estate Development',
       description: 'We are a modern real estate agency specializing in residential, commercial invesment properties.',
-      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&h=400&fit=crop',
+      slug: 'real-estate-development'
     },
     {
       id: 2,
       title: 'Project Management',
       description: 'We are a modern real estate agency specializing in residential, commercial invesment properties.',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=400&fit=crop',
+      slug: 'project-management'
     },
     {
       id: 3,
       title: 'Construction Management',
       description: 'We are a modern real estate agency specializing in residential, commercial invesment properties.',
-      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&h=400&fit=crop',
+      slug: 'construction-management'
     },
     {
       id: 4,
       title: 'Architecture & Design',
       description: 'We are a modern real estate agency specializing in residential, commercial invesment properties.',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&h=400&fit=crop',
+      slug: 'architecture-design'
     },
     {
       id: 5,
       title: 'Commercial Properties',
       description: 'We are a modern real estate agency specializing in residential, commercial invesment properties.',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&h=400&fit=crop',
+      slug: 'commercial-properties'
     },
     {
       id: 6,
       title: 'Real Estate Investment',
       description: 'We are a modern real estate agency specializing in residential, commercial invesment properties.',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&h=400&fit=crop',
+      slug: 'real-estate-investment'
     }
   ];
   return (
@@ -59,11 +66,12 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <div
+              <Link 
                 key={service.id}
+                href={`/services/ServiceDetails/${service.slug}`}
                 onMouseEnter={() => setHoveredCard(service.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className="group bg-gray-50 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer"
+                className="group bg-gray-50 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer block"
               >
                 {/* Header */}
                 <div className="p-6 flex items-center justify-between">
@@ -106,7 +114,7 @@ export default function ServicesPage() {
                     {service.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
