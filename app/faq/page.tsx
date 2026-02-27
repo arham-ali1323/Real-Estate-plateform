@@ -2,6 +2,7 @@
 import { SetStateAction, useState } from 'react';
 import { ChevronDown, MessageCircle } from 'lucide-react';
 import Hero from '@/components/ui/Hero';
+import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

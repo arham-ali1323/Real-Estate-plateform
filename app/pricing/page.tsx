@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Check, X } from 'lucide-react';
 import Hero from '@/components/ui/Hero';
+import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const PricingPlans = () => {
   const [billingCycle, setBillingCycle] = useState('monthly');

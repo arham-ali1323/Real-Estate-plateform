@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from '@/components/ui/Hero'
 import { Calendar, User, MessageCircle, ArrowRight } from 'lucide-react'
+import AnimatedSection from '@/components/ui/AnimatedSection'
 
 const BlogPage = () => {
   const blogPosts = [
@@ -78,7 +79,8 @@ const BlogPage = () => {
       />
 
       {/* Blog Posts Section */}
-      <section className="py-20 bg-white">
+      <AnimatedSection animation="slide-up" delay={200}>
+        <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Latest Real Estate Insights</h2>
@@ -136,7 +138,8 @@ const BlogPage = () => {
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* Newsletter Section */}
       <section className="py-20 bg-gray-50">

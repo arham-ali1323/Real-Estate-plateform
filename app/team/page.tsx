@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
 import Hero from '@/components/ui/Hero';
+import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const LeadershipTeam = () => {
   const teamMembers = [

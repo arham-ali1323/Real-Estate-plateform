@@ -2,6 +2,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Hero from '@/components/ui/Hero';
+import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export default function ServicesPage() {
      const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -55,7 +56,8 @@ export default function ServicesPage() {
       />
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <AnimatedSection animation="slide-up" delay={200}>
+        <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
@@ -63,7 +65,7 @@ export default function ServicesPage() {
                 key={service.id}
                 onMouseEnter={() => setHoveredCard(service.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className="group bg-gray-50 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer"
+                className="group bg-gray-50 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer hover-lift"
               >
                 {/* Header */}
                 <div className="p-6 flex items-center justify-between">
@@ -110,10 +112,12 @@ export default function ServicesPage() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* Request Schedule Section */}
-      <section className="relative py-20 bg-cover bg-center" style={{
+      <AnimatedSection animation="scale-in" delay={400}>
+        <section className="relative py-20 bg-cover bg-center" style={{
         backgroundImage: "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=600&fit=crop')"
       }}>
         <div className="max-w-7xl mx-auto px-6">
@@ -134,7 +138,8 @@ export default function ServicesPage() {
             </button>
           </div>
         </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* Book Consultation Form */}
       <section className="py-20 bg-white">

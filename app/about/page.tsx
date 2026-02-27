@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { TrendingUp, Users, Calendar, Search, MessageCircle, Phone, Mail } from 'lucide-react';
 import Hero from '@/components/ui/Hero';
+import AnimatedSection from '@/components/ui/AnimatedSection';
+import AnimatedCounter from '@/components/ui/AnimatedCounter';
 
 const About = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -80,10 +82,10 @@ const About = () => {
   ];
 
   const stats = [
-    { value: "358+", label: "Project Completed", highlight: true },
-    { value: "236+", label: "People Completed", highlight: true },
-    { value: "4.3+", label: "Ratings Completed", highlight: true },
-    { value: "25Y+", label: "Project Completed", highlight: true }
+    { value: 358, label: "Project Completed", highlight: true, suffix: "+" },
+    { value: 236, label: "People Completed", highlight: true, suffix: "+" },
+    { value: 4.3, label: "Ratings Completed", highlight: true, suffix: "+" },
+    { value: 25, label: "Years Experience", highlight: true, suffix: "Y+" }
   ];
 
   return (
@@ -98,11 +100,12 @@ const About = () => {
       />
       
       {/* Main Content Section */}
-      <div className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Content */}
-            <div>
+      <AnimatedSection animation="slide-up" delay={200}>
+        <div className="py-20 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Content */}
+              <div>
               <p className="text-red-500 text-sm font-semibold mb-3 tracking-wider">
                 ABOUT US
               </p>
@@ -167,35 +170,39 @@ const About = () => {
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </div>
-      </div>
+      </AnimatedSection>
 
       {/* Stats Section */}
-      <div className="bg-gray-900 py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="text-4xl md:text-5xl font-bold text-white">
-                    {stat.value}
-                  </span>
-                  {stat.highlight && (
-                    <span className="text-red-500 text-2xl">+</span>
-                  )}
+      <AnimatedSection animation="scale-in" delay={400}>
+        <div className="bg-gray-900 py-16 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <AnimatedCounter
+                      target={stat.value}
+                      suffix={stat.suffix}
+                      className="text-4xl md:text-5xl font-bold text-white"
+                      duration={2000}
+                    />
+                  </div>
+                  <p className="text-gray-400 text-sm">{stat.label}</p>
                 </div>
-                <p className="text-gray-400 text-sm">{stat.label}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </AnimatedSection>
 
       {/* Second Section */}
-      <div className="bg-white py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-12">
+      <AnimatedSection animation="slide-up" delay={600}>
+        <div className="bg-white py-20 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-12">
             {/* Left Column - Main Image and Content */}
             <div className="lg:col-span-2 space-y-12">
               {/* Main Image */}
@@ -328,9 +335,10 @@ const About = () => {
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </div>
-      </div>
+      </AnimatedSection>
     </div>
   );
 };
