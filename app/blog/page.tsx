@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const page = () => {
-  return (
-    <div>
-        <h1>Blog</h1>
-    </div>
-  )
-}
-
-export default page
-=======
 import React from 'react'
 import Hero from '@/components/ui/Hero'
 import { Calendar, User, MessageCircle, ArrowRight } from 'lucide-react'
@@ -175,4 +162,3 @@ const BlogPage = () => {
 }
 
 export default BlogPage
->>>>>>> c791df9d9537052942c1fd9b615bec9708130936

@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const page = () => {
-  return (
-    <div>
-        <h1>FAQ</h1>
-    </div>
-  )
-}
-
-export default page 
-=======
 "use client";   
 import { SetStateAction, useState } from 'react';
 import { ChevronDown, MessageCircle } from 'lucide-react';
@@ -136,4 +123,3 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
->>>>>>> c791df9d9537052942c1fd9b615bec9708130936

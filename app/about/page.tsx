@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const page = () => {
-  return (
-    <div>
-        <h1>About</h1>
-    </div>
-  )
-}
-
-export default page
-=======
 "use client";
 import { useState } from 'react';
 import { TrendingUp, Users, Calendar, Search, MessageCircle, Phone, Mail } from 'lucide-react';
@@ -349,4 +336,3 @@ const About = () => {
 };
 
 export default About;
->>>>>>> c791df9d9537052942c1fd9b615bec9708130936

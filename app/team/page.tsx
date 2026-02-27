@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const page = () => {
-  return (
-    <div>
-        <h1>Team</h1>
-    </div>
-  )
-}
-
-export default page
-=======
 "use client";
 import Link from 'next/link';
 import Hero from '@/components/ui/Hero';
@@ -184,4 +171,3 @@ const LeadershipTeam = () => {
 };
 
 export default LeadershipTeam;
->>>>>>> c791df9d9537052942c1fd9b615bec9708130936
