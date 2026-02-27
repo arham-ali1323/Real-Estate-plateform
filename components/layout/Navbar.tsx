@@ -57,18 +57,25 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <div key={item.name} className="relative">
-                <button
-                  className="text-white hover:text-red-500 transition-colors flex items-center gap-1"
-                  onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  {item.name}
-                  {item.hasDropdown && (
+                {item.hasDropdown ? (
+                  <button
+                    className="text-white hover:text-red-500 transition-colors flex items-center gap-1"
+                    onMouseEnter={() => setActiveDropdown(item.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    {item.name}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
-                  )}
-                </button>
+                  </button>
+                ) : (
+                  <Link
+                    href={`/${item.name.toLowerCase()}`}
+                    className="text-white hover:text-red-500 transition-colors flex items-center gap-1"
+                  >
+                    {item.name}
+                  </Link>
+                )}
 
                 {/* Dropdown Menu */}
                 {item.hasDropdown && activeDropdown === item.name && (
